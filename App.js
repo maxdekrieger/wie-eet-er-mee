@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, ImageBackground, Text } from 'react-native';
-import { Button } from 'react-native-elements';
-import styles from './styles/styles.js';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Font from 'expo-font';
+
+import styles from './styles/styles';
+import Button from './utils/Button';
 
 export default class App extends React.Component {
 
@@ -28,34 +28,18 @@ export default class App extends React.Component {
         source={require('./images/people-table-food-picnic.jpg')} 
         style={styles.background}
       >
-        <View style={styles.titleContainer}>
-          <Text style={[styles.titleMain, this.state.fontLoaded && styles.opensans]}>
-            Welkom terug, Max
-          </Text>
-        </View>
-        <View style={styles.contentContainer}>
-          <Button 
-            icon={
-              <Icon
-                name="arrow-right"
-                size={15}
-                color="white"
-              />
-            }
-            title="Mijn eetgroepen"
-            type="clear"
-            style={[styles.menuButton, this.state.fontLoaded && styles.opensans]}
-          />
-          <Button 
-            title="Mijn profiel"
-            type="clear"
-            style={styles.menuButton}
-          />
-          <Button 
-            title="Instellingen"
-            type="clear"
-            style={styles.menuButton}
-          />
+        <View style={styles.backgroundDarkener}>
+          <View style={styles.titleContainer}>
+            <Text style={[styles.titleMain, this.state.fontLoaded && styles.opensans]}>
+              Welkom terug, Max
+            </Text>
+          </View>
+          <View style={styles.contentContainer}>
+            <Button icon="utensils" title="Mijn Eetgroepen" borderBottom/>
+            <Button icon="user" title="Mijn Profiel" borderBottom/>
+            <Button icon="cog" title="Instellingen" borderBottom/>
+            <Button icon="calendar-alt" title="Agenda" borderBottom/>
+          </View>
         </View>
       </ImageBackground>
     );

@@ -13,6 +13,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
 
+    backgroundDarkener: {
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.3)'
+    },
+
     // Container and View styles
     titleContainer: {
         flex: 1,
@@ -22,10 +28,10 @@ const styles = StyleSheet.create({
     
     contentContainer: {
         flex: 3,
-        width: '94%',
-        marginLeft: '3%',
-        marginRight: '3%',
-        marginBottom: '3%',
+        width: '80%',
+        marginLeft: '10%',
+        marginRight: '10%',
+        marginBottom: '10%',
         backgroundColor: 'white',
         borderRadius: 10,
     },
@@ -35,14 +41,6 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 35,
     },
-
-    // Button styles
-    menuButton: {
-        flex: 1,
-        width: '100%',
-        borderTopWidth: 0,
-        borderRadius: 0,
-    }
 });
 
 export default styles;
