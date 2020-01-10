@@ -46,7 +46,10 @@ class Button extends React.Component {
                 this.props.borderTop && styles.borderTop, 
                 this.props.borderBottom && styles.borderBottom]}
             >
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity 
+                style={styles.button}
+                onPress={this.props.onPress}
+                >
                     <View style={styles.buttonIconContainer}>
                         {this.renderIcon()}
                     </View>

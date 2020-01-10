@@ -5,17 +5,22 @@ import { View, ImageBackground, StyleSheet } from 'react-native';
 // Redux
 import { connect } from 'react-redux';
 
-// Custom components
+// Custom components and styles
 import Button from '../components/Button';
 import Text from '../components/Text';
+import sharedStyles from '../shared-styles';
 
 class HomeScreen extends React.Component {
+
+    static navigationOptions = {
+        headerShown: false,
+    }
 
     render() {
         return (
             <ImageBackground 
               source={require('../images/people-table-food-picnic.jpg')}
-              style={styles.background}
+              style={sharedStyles.background}
             >
             <View style={styles.backgroundDarkener}>
                 <View style={styles.titleContainer}>
@@ -25,10 +30,22 @@ class HomeScreen extends React.Component {
                 </View>
                 <View style={styles.contentContainer}>
                     <View style={styles.buttonContainer}>
-                        <Button icon="utensils" title="Eetgroepen" borderBottom/>
-                        <Button icon="calendar-alt" title="Agenda" borderBottom/>
-                        <Button icon="user" title="Profiel" borderBottom/>
-                        <Button icon="cog" title="Instellingen"/>
+                        <Button 
+                            icon="utensils" 
+                            title="Eetgroepen" 
+                            onPress={() => this.props.navigation.navigate('EatingGroupsOverview')}
+                            borderBottom/>
+                        <Button 
+                            icon="calendar-alt" 
+                            title="Agenda" 
+                            borderBottom/>
+                        <Button 
+                            icon="user" 
+                            title="Profiel" 
+                            borderBottom/>
+                        <Button 
+                            icon="cog" 
+                            title="Instellingen"/>
                     </View>
                 </View>
             </View>
@@ -38,13 +55,6 @@ class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    background: {
-        width: '100%', 
-        height: '100%', 
-        flex: 1, 
-        alignItems: 'center', 
-        justifyContent: 'center'
-    },
 
     backgroundDarkener: {
         width: '100%',
