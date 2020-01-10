@@ -36,7 +36,7 @@ class MyText extends React.Component {
         }
 
         return (
-            <Text style={[givenStyle, this.props.fonts.OpenSansLoaded && styles.opensans]}>
+            <Text style={[givenStyle, fontFamilyStyle]}>
                 {this.props.children}
             </Text>
         )

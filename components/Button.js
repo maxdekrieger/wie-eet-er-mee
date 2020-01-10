@@ -40,27 +40,34 @@ class Button extends React.Component {
         }
 
         return (
-            <TouchableOpacity 
-              style={[
-                  styles.button, 
-                  this.props.borderTop && styles.borderTop, 
-                  this.props.borderBottom && styles.borderBottom]}
+            <View
+            style={[
+                styles.buttonContainer, 
+                this.props.borderTop && styles.borderTop, 
+                this.props.borderBottom && styles.borderBottom]}
             >
-                <View style={styles.buttonIconContainer}>
-                    {this.renderIcon()}
-                </View>
-                <View style={styles.buttonTextContainer}>
-                    <Text style={styles.buttonText} bold>{this.props.title}</Text>
-                </View>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <View style={styles.buttonIconContainer}>
+                        {this.renderIcon()}
+                    </View>
+                    <View style={styles.buttonTextContainer}>
+                        <Text style={styles.buttonText}>{this.props.title}</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    button: {
+    buttonContainer: {
         flex: 1,
         width: '100%',
+    },
+
+    button: {
+        width: '100%',
+        height: '100%',
         flexDirection: 'row',
     },
     
