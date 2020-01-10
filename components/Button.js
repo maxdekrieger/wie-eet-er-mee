@@ -1,6 +1,13 @@
+// React, React Native, Expo
 import React from 'react';
-import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, StyleSheet } from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+
+// Redux
+import { connect } from 'react-redux';
+
+// Custom components
+import Text from './Text';
 
 class Button extends React.Component {
     state = {
@@ -12,16 +19,12 @@ class Button extends React.Component {
         return { hasError: true };
     }
 
-    componentDidCatch(error, errorInfo) {
-        console.log("Something went wrong rendering a button: " + error);
-    }
-
     renderIcon() {
         if (this.props.icon != false) {
             return (
                 <FontAwesome5Icon 
                     name={this.props.icon} 
-                    solid color={'grey'} 
+                    solid color={'black'} 
                     size={30}
                 />)
         } else {
@@ -47,7 +50,7 @@ class Button extends React.Component {
                     {this.renderIcon()}
                 </View>
                 <View style={styles.buttonTextContainer}>
-                    <Text style={styles.buttonText}>{this.props.title}</Text>
+                    <Text style={styles.buttonText} bold>{this.props.title}</Text>
                 </View>
             </TouchableOpacity>
         );
@@ -75,7 +78,8 @@ const styles = StyleSheet.create({
     },
     
     buttonText: {
-        color: 'green',
+        color: 'black',
+        fontSize: 20,
     },
     
     borderBottom: {
@@ -89,4 +93,9 @@ const styles = StyleSheet.create({
     },
 })
 
-export default Button;
+const mapStateToProps = (state) => {
+    const { fonts } = state
+    return { fonts }
+};
+  
+export default connect(mapStateToProps)(Button);
