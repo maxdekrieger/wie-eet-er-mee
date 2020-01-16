@@ -24,7 +24,7 @@ class Button extends React.Component {
             return (
                 <FontAwesome5Icon 
                     name={this.props.icon} 
-                    solid color={'black'} 
+                    solid color={'#25383c'} 
                     size={30}
                 />)
         } else {
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     },
     
     buttonText: {
-        color: 'black',
+        color: '#25383c',
         fontSize: 20,
     },
     

@@ -1,6 +1,6 @@
 // React, React Native, Expo
 import React from 'react';
-import { View, ImageBackground, StyleSheet } from 'react-native';
+import { View, ImageBackground, StyleSheet, SafeAreaView } from 'react-native';
 
 // Redux
 import { connect } from 'react-redux';
@@ -22,33 +22,33 @@ class HomeScreen extends React.Component {
               source={require('../images/people-table-food-picnic.jpg')}
               style={sharedStyles.background}
             >
-            <View style={styles.backgroundDarkener}>
-                <View style={styles.titleContainer}>
-                <Text style={styles.titleMain}>
-                    Welkom terug, Max
-                </Text>
-                </View>
-                <View style={styles.contentContainer}>
-                    <View style={styles.buttonContainer}>
-                        <Button 
-                            icon="utensils" 
-                            title="Eetgroepen" 
-                            onPress={() => this.props.navigation.navigate('EatingGroupsOverview')}
-                            borderBottom/>
-                        <Button 
-                            icon="calendar-alt" 
-                            title="Agenda" 
-                            borderBottom/>
-                        <Button 
-                            icon="user" 
-                            title="Profiel" 
-                            borderBottom/>
-                        <Button 
-                            icon="cog" 
-                            title="Instellingen"/>
+                <View style={styles.backgroundDarkener}>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.title}>
+                            Wie eet er mee?
+                        </Text>
+                    </View>
+                    <View style={styles.contentContainer}>
+                        <View style={styles.buttonContainer}>
+                            <Button 
+                                icon="utensils" 
+                                title="Eetgroepen" 
+                                onPress={() => this.props.navigation.navigate('EatingGroupsOverview')}
+                                borderBottom/>
+                            <Button 
+                                icon="calendar-alt" 
+                                title="Agenda" 
+                                borderBottom/>
+                            <Button 
+                                icon="user" 
+                                title="Profiel" 
+                                borderBottom/>
+                            <Button 
+                                icon="cog" 
+                                title="Instellingen"/>
+                        </View>
                     </View>
                 </View>
-            </View>
             </ImageBackground>
         );
     }
@@ -85,10 +85,16 @@ const styles = StyleSheet.create({
     },
 
     // Text styles
-    titleMain: {
+    title: {
         color: 'white',
         fontSize: 35,
+        marginTop: '10%',
     },
+
+    subtitle: {
+        color: 'lightgrey',
+        fontSize: 25,
+    }
 });
 
 const mapStateToProps = (state) => {
